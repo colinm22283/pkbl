@@ -73,8 +73,10 @@ clean:
 $(BIN_DIR)/pkbl.bin: $(BIN_DIR)/bootsector.bin $(BIN_DIR)/bootloader.bin
 	cat $(BIN_DIR)/bootsector.bin $(BIN_DIR)/bootloader.bin > $(BIN_DIR)/pkbl.bin
 
-$(BIN_DIR)/bootsector.bin:
+$(BIN_DIR)/bootsector.bin: .FORCE
 	cd source/bootsector && $(MAKE) $(BIN_DIR)/bootsector.bin
 
-$(BIN_DIR)/bootloader.bin:
+$(BIN_DIR)/bootloader.bin: .FORCE
 	cd source/bootloader && $(MAKE) $(BIN_DIR)/bootloader.bin
+
+.FORCE:
