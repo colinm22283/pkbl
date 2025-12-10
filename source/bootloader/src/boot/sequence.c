@@ -80,22 +80,22 @@ uint32_t boot_sequence_start(const char * kernel_path) {
 
     shell_ready_to_execute = true;
     // TODO: undo this comment
-    console_print("Finalize boot? (y/n)");
-    char input = keyboard_getch();
-    while (input != 'y' && input != 'n') {
-        console_print("\nInvalid selection '");
-        console_put(input);
-        console_put('\'');
+    /* console_print("Finalize boot? (y/n)"); */
+    /* char input = keyboard_getch(); */
+    /* while (input != 'y' && input != 'n') { */
+        /* console_print("\nInvalid selection '"); */
+        /* console_put(input); */
+        /* console_put('\''); */
     
-        input = keyboard_getch();
-    }
-    console_newline();
-    if (input == 'n') {
-        heap_init();
+        /* input = keyboard_getch(); */
+    /* } */
+    /* console_newline(); */
+    /* if (input == 'n') { */
+        /* heap_init(); */
     
-        shell_ready_to_execute = false;
-        return 4;
-    }
+        /* shell_ready_to_execute = false; */
+        /* return 4; */
+    /* } */
 
     print_init("mask PIC interrupts");
     pic_mask_all();
